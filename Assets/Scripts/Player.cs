@@ -18,7 +18,6 @@ public class Player : MonoBehaviour
 
     [SerializeField] private bool canAttack;
 
-    private void OnCollisionEnter2D(Collision2D collision) {}
 
 
 
@@ -59,7 +58,7 @@ public class Player : MonoBehaviour
             transform.position.y + vertical * movementMultiplier
         );
     }
-
+    
 }
 
 
