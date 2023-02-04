@@ -56,6 +56,28 @@ public class Enemy : MonoBehaviour, IDamageable
     
     }   
 
+    private IEnumerator TrackingAttackPattern () {
+        while(true)
+        {
+
+            yield return new WaitForSeconds(1f);
+            Vector2 bulletPosVector = player.transform.position - transform.position;
+            float angle = Mathf.Atan2(bulletPosVector.y, bulletPosVector.x);
+            FireProjectile(10, 1);
+        }
+    
+    }   
+
+    private Vector3 CalculatePlayerPos(int steps) {
+        float playerH = player.horizontal;
+        float playerV = player.vertical;
+        float playerSpeed = player.movementMultiplier;
+
+        Vector3 calculate = new Vector3(playerH*playerSpeed*steps, playerV*playerSpeed*steps, 0);
+
+        return calculate;
+    }
+
     private void FireProjectile (float speed, float size) {
 
         GameObject go = Instantiate(bullet, transform.position, Quaternion.identity);

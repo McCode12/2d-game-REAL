@@ -1,3 +1,5 @@
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,9 +7,9 @@ using TMPro;
 
 public class Player : MonoBehaviour, IDamageable
 {
-    [SerializeField] private float horizontal;
-    [SerializeField] private float vertical;
-    [SerializeField] private float movementMultiplier = 0.1f;
+    [SerializeField] public float horizontal;
+    [SerializeField] public float vertical;
+    [SerializeField] public float movementMultiplier = 0.1f;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] public float playerHP;
     [SerializeField] private TextMeshProUGUI healthText;
