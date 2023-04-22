@@ -105,12 +105,20 @@ MonoBehaviour:
   bullet: {fileID: 9001241174914456972, guid: 9aa8b0f8a9e46f34f8fd2b5e8bc00c0d, type: 3}
   chaseSpeed: 3.5
   health: 100
-  basicEnemyColor: {r: 0.9528302, g: 0, b: 0, a: 1}
+  basicEnemyColor: {r: 1, g: 0, b: 0, a: 1}
   enemyType: 0
   enemyColor:
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 0.2995283, g: 0.44777292, b: 0.5, a: 1}
+  - {r: 0.89766955, g: 1, b: 0, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
+  enemySpriteList:
+  - {fileID: 21300000, guid: 66d5f5306702a4c74bc9def85f8bd8b7, type: 3}
+  - {fileID: 21300000, guid: 66d5f5306702a4c74bc9def85f8bd8b7, type: 3}
+  - {fileID: 21300000, guid: 9cf9fd30c084c4451b2273c91638c913, type: 3}
+  - {fileID: 21300000, guid: f3febd667b146479bba93eb2be22677e, type: 3}
   listName: []
+  Offset: 40
 --- !u!50 &6388168731943452102
 Rigidbody2D:
   serializedVersion: 4

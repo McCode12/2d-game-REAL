@@ -6,7 +6,7 @@ public interface IDamageable {
    void ChangeHPBy(int amount);
 }
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour,IDamageable
 {
     // Start is called before the first frame update
     [SerializeField] private Rigidbody2D rb;
@@ -28,5 +28,8 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
+
+    public void ChangeHPBy(int amount) {
     }
 }

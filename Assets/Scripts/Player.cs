@@ -11,10 +11,15 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] public float vertical;
     [SerializeField] public float movementMultiplier = 0.1f;
     [SerializeField] private Rigidbody2D rb;
+
+    [SerializeField] public KeyCode flashBangKey = KeyCode.F;
+    [SerializeField] public GameObject flashBangPrefab;
+
     [SerializeField] public float playerHP;
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private bool canAttack = true;
     [SerializeField] private GameObject bullet;
+
 
     
     public void ChangeHPBy(int amount) {
@@ -47,13 +52,6 @@ public class Player : MonoBehaviour, IDamageable
         canAttack = true;
     }   
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        if(collision.gameObject.tag != "Wall") {
-            playerHP = playerHP - 10;
-            healthText.text = $"Player HP: {playerHP}";
-        }
-        
-    }
     void FixedUpdate(){
         if (horizontal != 0 && vertical != 0) {
             horizontal = horizontal/1.414f;
@@ -61,6 +59,14 @@ public class Player : MonoBehaviour, IDamageable
         }
         transform.position = new Vector2(transform.position.x + horizontal * movementMultiplier, transform.position.y + vertical * movementMultiplier);
  
+    }
+
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        if(coll.gameObject.GetComponent<IDamageable>() != null)
+        {
+            healthText.text = $"Player HP: {playerHP}";
+        }
     }
 
     void Start()
@@ -77,5 +83,17 @@ public class Player : MonoBehaviour, IDamageable
         if (firebullet == true) {
             AttemptAttack();
         }
+
+        // bool throwflashbang = Input.GetKeyDown(KeyCode.F);
+        // if (throwflashbang) {
+        //     flashBangFunction();
+        // }
+
     }
+
+    // void flashBangFunction()
+    // {
+    //     GameObject flashBang = Instantiate(flashBangPrefab, transform.position, transform.rotation);
+
+    // }
 }
